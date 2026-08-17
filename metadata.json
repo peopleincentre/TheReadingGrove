@@ -1,0 +1,6 @@
+{
+  "name": "The Reading Grove 2.0",
+  "description": "An application by PiC to manage a small office library. It allows for book entry, searching, filtering, and exporting data. Ships with a 651-book catalog covering architecture, housing, environment, urban planning, disasters, water, construction, rural development, and society. This version has improved graphics.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
