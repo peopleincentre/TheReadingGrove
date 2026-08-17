@@ -3,84 +3,84 @@
     "code": "ARC",
     "name": "Architecture",
     "color": "bg-pink-500 text-white",
-    "borderColor": "border-pink-700",
+    "accentColor": "bg-pink-700",
     "cardGradient": "bg-gradient-to-b from-pink-200 to-pink-300"
   },
   {
     "code": "CON",
     "name": "Construction",
     "color": "bg-yellow-500 text-slate-900",
-    "borderColor": "border-yellow-700",
+    "accentColor": "bg-yellow-700",
     "cardGradient": "bg-gradient-to-b from-yellow-200 to-yellow-300"
   },
   {
     "code": "DIS",
     "name": "Disasters",
     "color": "bg-red-500 text-white",
-    "borderColor": "border-red-700",
+    "accentColor": "bg-red-700",
     "cardGradient": "bg-gradient-to-b from-red-200 to-red-300"
   },
   {
     "code": "ENV",
     "name": "Environment",
     "color": "bg-emerald-500 text-white",
-    "borderColor": "border-emerald-700",
+    "accentColor": "bg-emerald-700",
     "cardGradient": "bg-gradient-to-b from-emerald-200 to-emerald-300"
   },
   {
     "code": "GEN",
     "name": "General",
     "color": "bg-stone-500 text-white",
-    "borderColor": "border-stone-700",
+    "accentColor": "bg-stone-700",
     "cardGradient": "bg-gradient-to-b from-stone-200 to-stone-300"
   },
   {
     "code": "HOU",
     "name": "Housing",
     "color": "bg-orange-500 text-white",
-    "borderColor": "border-orange-700",
+    "accentColor": "bg-orange-700",
     "cardGradient": "bg-gradient-to-b from-orange-200 to-orange-300"
   },
   {
     "code": "RUR",
     "name": "Rural Development",
     "color": "bg-lime-500 text-white",
-    "borderColor": "border-lime-700",
+    "accentColor": "bg-lime-700",
     "cardGradient": "bg-gradient-to-b from-lime-200 to-lime-300"
   },
   {
     "code": "SOC",
     "name": "Society",
     "color": "bg-violet-500 text-white",
-    "borderColor": "border-violet-700",
+    "accentColor": "bg-violet-700",
     "cardGradient": "bg-gradient-to-b from-violet-200 to-violet-300"
   },
   {
     "code": "TEC",
     "name": "Technology",
     "color": "bg-indigo-500 text-white",
-    "borderColor": "border-indigo-700",
+    "accentColor": "bg-indigo-700",
     "cardGradient": "bg-gradient-to-b from-indigo-200 to-indigo-300"
   },
   {
     "code": "THE",
     "name": "Theory",
     "color": "bg-fuchsia-500 text-white",
-    "borderColor": "border-fuchsia-700",
+    "accentColor": "bg-fuchsia-700",
     "cardGradient": "bg-gradient-to-b from-fuchsia-200 to-fuchsia-300"
   },
   {
     "code": "URB",
     "name": "Urban Planning",
     "color": "bg-blue-500 text-white",
-    "borderColor": "border-blue-700",
+    "accentColor": "bg-blue-700",
     "cardGradient": "bg-gradient-to-b from-blue-200 to-blue-300"
   },
   {
     "code": "WAT",
     "name": "Water",
     "color": "bg-cyan-500 text-white",
-    "borderColor": "border-cyan-700",
+    "accentColor": "bg-cyan-700",
     "cardGradient": "bg-gradient-to-b from-cyan-200 to-cyan-300"
   }
 ]

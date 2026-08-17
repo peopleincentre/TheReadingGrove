@@ -73,7 +73,7 @@ const subjects = subjectFiles
       code: fm.code || file.replace(/\.md$/, ''),
       name: fm.name || fm.code,
       color: fm.color || '',
-      borderColor: fm.borderColor || '',
+      accentColor: fm.accentColor || '',
       cardGradient: fm.cardGradient || '',
     };
   })
