@@ -1,34 +1,59 @@
 import { Book, Subject } from '../types';
 
-export interface SearchOptions {
-  term: string;
-  subjects: Subject[];
+export interface BookFilters {
+  q: string; // General search across all fields
+  title: string;
+  author: string;
+  publisher: string;
+  keyword: string;
+  subjectCode: string | null;
 }
 
+export const EMPTY_FILTERS: BookFilters = {
+  q: '',
+  title: '',
+  author: '',
+  publisher: '',
+  keyword: '',
+  subjectCode: null,
+};
+
+const lower = (value: string | null | undefined): string => (value || '').toLowerCase();
+
+const matches = (haystack: string, needle: string): boolean =>
+  needle === '' || lower(haystack).includes(lower(needle));
+
 /**
- * Returns books matching `term` across all searchable metadata fields:
- * title, authors, keywords, publisher, subject name, accession number, and ISBN.
- * Matching is case-insensitive and substring-based.
+ * Returns books matching the given filters. Matching is case-insensitive and
+ * substring-based; every non-empty filter must match (AND), and `q` matches
+ * across all searchable metadata fields.
  */
-export function searchBooks(books: Book[], options: SearchOptions): Book[] {
-  const term = options.term.trim().toLowerCase();
-  if (!term) return books;
+export function filterBooks(books: Book[], filters: BookFilters, subjects: Subject[]): Book[] {
+  const { q, title, author, publisher, keyword, subjectCode } = filters;
 
   return books.filter(book => {
-    const haystack = [
-      book.title,
-      book.authors,
-      book.keywords,
-      book.publisher,
-      book.accessionNumber,
-      book.isbn,
-      subjectName(book, options.subjects),
-    ]
-      .filter(Boolean)
-      .join(' ')
-      .toLowerCase();
+    if (subjectCode && book.subjectCode !== subjectCode) return false;
+    if (!matches(book.title, title)) return false;
+    if (!matches(book.authors, author)) return false;
+    if (!matches(book.publisher, publisher)) return false;
+    if (!matches(book.keywords, keyword)) return false;
 
-    return haystack.includes(term);
+    if (q) {
+      const haystack = [
+        book.title,
+        book.authors,
+        book.keywords,
+        book.publisher,
+        book.accessionNumber,
+        book.isbn,
+        subjectName(book, subjects),
+      ]
+        .filter(Boolean)
+        .join(' ');
+      if (!matches(haystack, q)) return false;
+    }
+
+    return true;
   });
 }
 
