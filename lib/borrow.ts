@@ -29,6 +29,6 @@ export function buildBorrowMailto(book: Book, subjectName: string): string {
     'Your message:',
   ].join('\n');
 
-  const params = new URLSearchParams({ subject, body });
-  return `mailto:${BORROW_EMAIL}?${params.toString()}`;
+  const params = `subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  return `mailto:${BORROW_EMAIL}?${params}`;
 }
