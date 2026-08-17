@@ -1,9 +1,10 @@
 export interface Subject {
   code: string; // Unique ID for a subject
   name: string;
-  color: string; // Tailwind pill/badge class, e.g. 'bg-red-500 text-white'
-  accentColor: string; // Tailwind class for the card's top accent bar, e.g. 'bg-pink-700'
-  cardGradient: string; // Tailwind gradient class for the card background
+  color: string; // Hex background for the pill/badge, e.g. '#EF4444'
+  accentColor: string; // Hex for the card's top accent bar, e.g. '#B91C1C'
+  cardGradientFrom: string; // Hex for the top of the card gradient
+  cardGradientTo: string; // Hex for the bottom of the card gradient
 }
 
 export interface Book {

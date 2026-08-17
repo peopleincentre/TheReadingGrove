@@ -1,7 +1,8 @@
 ---
 code: RUR
 name: Rural Development
-color: "bg-lime-500 text-white"
-accentColor: "bg-lime-700"
-cardGradient: "bg-gradient-to-b from-lime-200 to-lime-300"
+color: "#84CC16"
+accentColor: "#4D7C0F"
+cardGradientFrom: "#D9F99D"
+cardGradientTo: "#BEF264"
 ---

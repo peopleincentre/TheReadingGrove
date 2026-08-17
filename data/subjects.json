@@ -2,85 +2,97 @@
   {
     "code": "ARC",
     "name": "Architecture",
-    "color": "bg-pink-500 text-white",
-    "accentColor": "bg-pink-700",
-    "cardGradient": "bg-gradient-to-b from-pink-200 to-pink-300"
+    "color": "#EC4899",
+    "accentColor": "#BE185D",
+    "cardGradientFrom": "#FBCFE8",
+    "cardGradientTo": "#F9A8D4"
   },
   {
     "code": "CON",
     "name": "Construction",
-    "color": "bg-yellow-500 text-slate-900",
-    "accentColor": "bg-yellow-700",
-    "cardGradient": "bg-gradient-to-b from-yellow-200 to-yellow-300"
+    "color": "#EAB308",
+    "accentColor": "#A16207",
+    "cardGradientFrom": "#FEF08A",
+    "cardGradientTo": "#FDE047"
   },
   {
     "code": "DIS",
     "name": "Disasters",
-    "color": "bg-red-500 text-white",
-    "accentColor": "bg-red-700",
-    "cardGradient": "bg-gradient-to-b from-red-200 to-red-300"
+    "color": "#EF4444",
+    "accentColor": "#B91C1C",
+    "cardGradientFrom": "#FECACA",
+    "cardGradientTo": "#FCA5A5"
   },
   {
     "code": "ENV",
     "name": "Environment",
-    "color": "bg-emerald-500 text-white",
-    "accentColor": "bg-emerald-700",
-    "cardGradient": "bg-gradient-to-b from-emerald-200 to-emerald-300"
+    "color": "#10B981",
+    "accentColor": "#047857",
+    "cardGradientFrom": "#A7F3D0",
+    "cardGradientTo": "#6EE7B7"
   },
   {
     "code": "GEN",
     "name": "General",
-    "color": "bg-stone-500 text-white",
-    "accentColor": "bg-stone-700",
-    "cardGradient": "bg-gradient-to-b from-stone-200 to-stone-300"
+    "color": "#78716C",
+    "accentColor": "#44403C",
+    "cardGradientFrom": "#E7E5E4",
+    "cardGradientTo": "#D6D3D1"
   },
   {
     "code": "HOU",
     "name": "Housing",
-    "color": "bg-orange-500 text-white",
-    "accentColor": "bg-orange-700",
-    "cardGradient": "bg-gradient-to-b from-orange-200 to-orange-300"
+    "color": "#F97316",
+    "accentColor": "#C2410C",
+    "cardGradientFrom": "#FED7AA",
+    "cardGradientTo": "#FDBA74"
   },
   {
     "code": "RUR",
     "name": "Rural Development",
-    "color": "bg-lime-500 text-white",
-    "accentColor": "bg-lime-700",
-    "cardGradient": "bg-gradient-to-b from-lime-200 to-lime-300"
+    "color": "#84CC16",
+    "accentColor": "#4D7C0F",
+    "cardGradientFrom": "#D9F99D",
+    "cardGradientTo": "#BEF264"
   },
   {
     "code": "SOC",
     "name": "Society",
-    "color": "bg-violet-500 text-white",
-    "accentColor": "bg-violet-700",
-    "cardGradient": "bg-gradient-to-b from-violet-200 to-violet-300"
+    "color": "#8B5CF6",
+    "accentColor": "#6D28D9",
+    "cardGradientFrom": "#DDD6FE",
+    "cardGradientTo": "#C4B5FD"
   },
   {
     "code": "TEC",
     "name": "Technology",
-    "color": "bg-indigo-500 text-white",
-    "accentColor": "bg-indigo-700",
-    "cardGradient": "bg-gradient-to-b from-indigo-200 to-indigo-300"
+    "color": "#6366F1",
+    "accentColor": "#4338CA",
+    "cardGradientFrom": "#C7D2FE",
+    "cardGradientTo": "#A5B4FC"
   },
   {
     "code": "THE",
     "name": "Theory",
-    "color": "bg-fuchsia-500 text-white",
-    "accentColor": "bg-fuchsia-700",
-    "cardGradient": "bg-gradient-to-b from-fuchsia-200 to-fuchsia-300"
+    "color": "#D946EF",
+    "accentColor": "#A21CAF",
+    "cardGradientFrom": "#F5D0FE",
+    "cardGradientTo": "#F0ABFC"
   },
   {
     "code": "URB",
     "name": "Urban Planning",
-    "color": "bg-blue-500 text-white",
-    "accentColor": "bg-blue-700",
-    "cardGradient": "bg-gradient-to-b from-blue-200 to-blue-300"
+    "color": "#3B82F6",
+    "accentColor": "#1D4ED8",
+    "cardGradientFrom": "#BFDBFE",
+    "cardGradientTo": "#93C5FD"
   },
   {
     "code": "WAT",
     "name": "Water",
-    "color": "bg-cyan-500 text-white",
-    "accentColor": "bg-cyan-700",
-    "cardGradient": "bg-gradient-to-b from-cyan-200 to-cyan-300"
+    "color": "#06B6D4",
+    "accentColor": "#0E7490",
+    "cardGradientFrom": "#A5F3FC",
+    "cardGradientTo": "#67E8F9"
   }
 ]

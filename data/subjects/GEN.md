@@ -1,7 +1,8 @@
 ---
 code: GEN
 name: General
-color: "bg-stone-500 text-white"
-accentColor: "bg-stone-700"
-cardGradient: "bg-gradient-to-b from-stone-200 to-stone-300"
+color: "#78716C"
+accentColor: "#44403C"
+cardGradientFrom: "#E7E5E4"
+cardGradientTo: "#D6D3D1"
 ---

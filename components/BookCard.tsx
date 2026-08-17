@@ -25,9 +25,11 @@ const BookCard: React.FC<BookCardProps> = ({ book, subject, onSelect }) => {
     <button
       type="button"
       onClick={() => onSelect(book)}
+      style={{
+        backgroundImage: `linear-gradient(to bottom, ${subject.cardGradientFrom}, ${subject.cardGradientTo})`,
+      }}
       className={`
         h-full w-full text-left flex flex-col
-        ${subject.cardGradient}
         border border-slate-200 dark:border-slate-700
         rounded-lg shadow-sm hover:shadow-md overflow-hidden
         transition-all duration-200 ease-in-out
@@ -37,7 +39,7 @@ const BookCard: React.FC<BookCardProps> = ({ book, subject, onSelect }) => {
       aria-label={`View details for book: ${book.title}`}
       title={book.title}
     >
-      <div className={`h-1 shrink-0 ${subject.accentColor}`} />
+      <div className="h-1 shrink-0" style={{ backgroundColor: subject.accentColor }} />
 
       <div className="p-3 md:p-4 flex flex-col gap-1.5">
         <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-slate-100 leading-snug line-clamp-3">

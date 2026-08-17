@@ -1,6 +1,7 @@
 import React from 'react';
 import { Subject } from '../types';
 import { BookFilters } from '../lib/search';
+import { contrastText } from '../lib/color';
 
 interface SearchBarProps {
   filters: BookFilters;
@@ -39,7 +40,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ filters, onFiltersChange, subject
               key={subject.code}
               type="button"
               onClick={() => onFiltersChange({ subjectCode: active ? null : subject.code })}
-              className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors duration-150 ${subject.color} ${
+              style={{ backgroundColor: subject.color, color: contrastText(subject.color) }}
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors duration-150 ${
                 active ? 'ring-2 ring-indigo-500 ring-offset-2 dark:ring-offset-slate-800' : 'opacity-90 hover:opacity-100'
               }`}
             >

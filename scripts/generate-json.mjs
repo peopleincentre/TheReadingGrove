@@ -74,7 +74,8 @@ const subjects = subjectFiles
       name: fm.name || fm.code,
       color: fm.color || '',
       accentColor: fm.accentColor || '',
-      cardGradient: fm.cardGradient || '',
+      cardGradientFrom: fm.cardGradientFrom || '',
+      cardGradientTo: fm.cardGradientTo || '',
     };
   })
   .sort((a, b) => a.code.localeCompare(b.code));

@@ -1,7 +1,8 @@
 ---
 code: TEC
 name: Technology
-color: "bg-indigo-500 text-white"
-accentColor: "bg-indigo-700"
-cardGradient: "bg-gradient-to-b from-indigo-200 to-indigo-300"
+color: "#6366F1"
+accentColor: "#4338CA"
+cardGradientFrom: "#C7D2FE"
+cardGradientTo: "#A5B4FC"
 ---

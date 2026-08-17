@@ -2,6 +2,7 @@ import React from 'react';
 import { Book, Subject } from '../types';
 import Modal from './common/Modal';
 import { buildBorrowMailto } from '../lib/borrow';
+import { contrastText } from '../lib/color';
 import { BORROW_EMAIL } from '../constants';
 
 interface BookDetailModalProps {
@@ -27,7 +28,10 @@ const BookDetailModal: React.FC<BookDetailModalProps> = ({ book, subject, onClos
     <Modal onClose={onClose} title={book.title}>
       <div className="space-y-5">
         <div>
-          <span className={`inline-block px-3 py-1 rounded-md text-xs font-bold ${subject.color}`}>
+          <span
+            className="inline-block px-3 py-1 rounded-md text-xs font-bold"
+            style={{ backgroundColor: subject.color, color: contrastText(subject.color) }}
+          >
             {subject.name}
           </span>
         </div>

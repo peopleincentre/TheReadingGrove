@@ -1,7 +1,8 @@
 ---
 code: HOU
 name: Housing
-color: "bg-orange-500 text-white"
-accentColor: "bg-orange-700"
-cardGradient: "bg-gradient-to-b from-orange-200 to-orange-300"
+color: "#F97316"
+accentColor: "#C2410C"
+cardGradientFrom: "#FED7AA"
+cardGradientTo: "#FDBA74"
 ---

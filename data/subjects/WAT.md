@@ -1,7 +1,8 @@
 ---
 code: WAT
 name: Water
-color: "bg-cyan-500 text-white"
-accentColor: "bg-cyan-700"
-cardGradient: "bg-gradient-to-b from-cyan-200 to-cyan-300"
+color: "#06B6D4"
+accentColor: "#0E7490"
+cardGradientFrom: "#A5F3FC"
+cardGradientTo: "#67E8F9"
 ---
