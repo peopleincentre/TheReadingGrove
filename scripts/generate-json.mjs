@@ -9,6 +9,8 @@ import { fileURLToPath } from 'node:url';
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const booksDir = join(root, 'data', 'books');
 const outFile = join(root, 'data', 'seedBooks.json');
+const subjectsDir = join(root, 'data', 'subjects');
+const subjectsOutFile = join(root, 'data', 'subjects.json');
 
 function parseMarkdown(raw) {
   const lines = raw.split(/\r?\n/);
@@ -61,3 +63,21 @@ const books = files
 
 writeFileSync(outFile, JSON.stringify(books, null, 2) + '\n');
 console.log(`Wrote ${books.length} books to ${outFile}`);
+
+const subjectFiles = readdirSync(subjectsDir).filter(f => f.endsWith('.md'));
+const subjects = subjectFiles
+  .map(file => {
+    const raw = readFileSync(join(subjectsDir, file), 'utf8');
+    const { fm } = parseMarkdown(raw);
+    return {
+      code: fm.code || file.replace(/\.md$/, ''),
+      name: fm.name || fm.code,
+      color: fm.color || '',
+      borderColor: fm.borderColor || '',
+      cardGradient: fm.cardGradient || '',
+    };
+  })
+  .sort((a, b) => a.code.localeCompare(b.code));
+
+writeFileSync(subjectsOutFile, JSON.stringify(subjects, null, 2) + '\n');
+console.log(`Wrote ${subjects.length} subjects to ${subjectsOutFile}`);

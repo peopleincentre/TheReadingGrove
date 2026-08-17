@@ -1,0 +1,7 @@
+---
+code: ARC
+name: Architecture
+color: "bg-pink-500 text-white"
+borderColor: "border-pink-700"
+cardGradient: "bg-gradient-to-b from-pink-200 to-pink-300"
+---

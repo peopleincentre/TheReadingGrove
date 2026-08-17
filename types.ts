@@ -1,8 +1,7 @@
 export interface Subject {
   code: string; // Unique ID for a subject
   name: string;
-  color: string; // Tailwind color class e.g., 'bg-blue-500 text-white'
-  cardColor: string; // Tailwind class for the book item card background
+  color: string; // Tailwind pill/badge class, e.g. 'bg-red-500 text-white'
   borderColor: string; // Tailwind class for the book item card border
   cardGradient: string; // Tailwind gradient class for the card background
 }

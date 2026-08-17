@@ -27,7 +27,7 @@ const BookDetailModal: React.FC<BookDetailModalProps> = ({ book, subject, onClos
     <Modal onClose={onClose} title={book.title}>
       <div className="space-y-5">
         <div>
-          <span className={`inline-block px-3 py-1 rounded-md text-xs font-bold text-white ${subject.cardColor}`}>
+          <span className={`inline-block px-3 py-1 rounded-md text-xs font-bold ${subject.color}`}>
             {subject.name}
           </span>
         </div>

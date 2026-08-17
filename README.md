@@ -11,10 +11,11 @@ A public browse-and-search site for the PiC library at [People in Centre](https:
 
 ## Data (editable catalog)
 
-- The catalog lives as **one markdown file per book** in `data/books/` (e.g. `data/books/1.md`). Each file has YAML-style frontmatter with the book's metadata (title, authors, subject, publisher, year, isbn, copies, keywords); any free text below the `---` line becomes the book's `remarks`, shown in the detail view.
-- `data/seedBooks.json` is **generated** from those markdown files by `scripts/generate-json.mjs` and is run automatically before every build, so the markdown files are the source of truth.
-- **To edit a book:** open its file in `data/books/`, change the values, and push. CI rebuilds and redeploys automatically. Locally, run `npm run build` (regenerates the JSON) or `npm run dev`.
-- `scripts/generate-md.mjs` regenerates the markdown files from an existing `seedBooks.json` (e.g. after re-running the CSV import). `LibraryBooks2026.csv` is kept as historical provenance.
+- **Books** — one markdown file per book in `data/books/` (e.g. `data/books/1.md`). Each file has YAML-style frontmatter with the book's metadata (title, authors, subject, publisher, year, isbn, copies, keywords); any free text below the `---` line becomes the book's `remarks`, shown in the detail view.
+- **Categories** — one markdown file per subject in `data/subjects/` (e.g. `data/subjects/DIS.md`). Frontmatter defines the category's `name`, `color` (pill/badge classes), `borderColor`, and `cardGradient` (card background). Colors are chosen to be clearly distinguishable from each other.
+- `data/seedBooks.json` and `data/subjects.json` are **generated** from those markdown files by `scripts/generate-json.mjs`, which runs automatically before every build — the markdown files are the source of truth.
+- **To edit a book or a category:** open its file in `data/books/` or `data/subjects/`, change the values, and push. CI rebuilds and redeploys automatically. Locally, run `npm run build` (regenerates the JSON) or `npm run dev`.
+- `scripts/generate-md.mjs` regenerates the book markdown files from an existing `seedBooks.json` (e.g. after re-running the CSV import). `LibraryBooks2026.csv` is kept as historical provenance.
 
 ## Run Locally
 
