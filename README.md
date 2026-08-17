@@ -1,18 +1,20 @@
 # The Reading Grove
 
-A public browse-and-search site for the PiC library at [People in Centre](https://www.peopleincentre.org). Visitors can explore the catalog — arranged as subject-wise shelves — and request a book by email. No login, no editing: it is a read-only catalog site.
+A public browse-and-search site for the PiC library at [People in Centre](https://www.peopleincentre.org). Visitors can explore the catalog — a flat, alphabetical gallery with category-colored cards — and request a book by email. No login, no editing: it is a read-only catalog site.
 
 ## Features
 
-- **Browse the shelves** — the homepage shows the full catalog arranged on subject shelves (Architecture, Housing, Environment, Urban Planning, Disasters, Water, Construction, Rural Development, Society, General…), with books rendered as color-coded spines.
-- **Search** — search across title, author, keywords, publisher, subject, accession number, and ISBN. Results filter the shelves in place.
-- **Browse by subject** — click a subject chip to focus a single shelf with a search box scoped to it. Views are shareable via the URL hash (e.g. `#subject=DIS&q=flood`).
+- **Browse the catalog** — the homepage shows the full catalog alphabetically, with color-coded cards. Each card's gradient background indicates its subject (Architecture, Housing, Environment, Urban Planning, Disasters, Water, Construction, Rural Development, Society, General…).
+- **Search** — a general search box plus field filters for title, author, publisher, and keyword. Filters combine (AND) and are shareable via the URL hash (e.g. `#q=flood&subject=DIS&author=...`).
+- **Browse by subject** — click a subject pill to narrow the gallery to that category (shows per-subject counts).
 - **Request a book** — each book has a "Borrow this book" button that opens an email to `office@peopleincentre.com` with the subject *The Reading Grove* and the book's details pre-filled. Add your name and message in your mail app, then send.
 
-## Data
+## Data (editable catalog)
 
-- The catalog is `data/seedBooks.json` — 651 books bundled into the app as the canonical catalog (committed to the repo).
-- The seed file is generated from `LibraryBooks2026.csv` by the script at `/tmp/opencode/generate_seed.py`. After changing the CSV, re-run `python3 /tmp/opencode/generate_seed.py` and commit the regenerated JSON.
+- The catalog lives as **one markdown file per book** in `data/books/` (e.g. `data/books/1.md`). Each file has YAML-style frontmatter with the book's metadata (title, authors, subject, publisher, year, isbn, copies, keywords); any free text below the `---` line becomes the book's `remarks`, shown in the detail view.
+- `data/seedBooks.json` is **generated** from those markdown files by `scripts/generate-json.mjs` and is run automatically before every build, so the markdown files are the source of truth.
+- **To edit a book:** open its file in `data/books/`, change the values, and push. CI rebuilds and redeploys automatically. Locally, run `npm run build` (regenerates the JSON) or `npm run dev`.
+- `scripts/generate-md.mjs` regenerates the markdown files from an existing `seedBooks.json` (e.g. after re-running the CSV import). `LibraryBooks2026.csv` is kept as historical provenance.
 
 ## Run Locally
 
