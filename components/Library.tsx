@@ -5,7 +5,7 @@ import { searchBooks } from '../lib/search';
 import seedBooks from '../data/seedBooks.json';
 import Header from './Header';
 import SearchBar from './SearchBar';
-import Shelf from './Shelf';
+import SubjectSection from './SubjectSection';
 import BookDetailModal from './BookDetailModal';
 
 const Library: React.FC = () => {
@@ -83,7 +83,9 @@ const Library: React.FC = () => {
         return (filteredBySubject[subject.code]?.length || 0) > 0;
       }).map(subject => ({
         subject,
-        books: filteredBySubject[subject.code] || [],
+        books: [...(filteredBySubject[subject.code] || [])].sort((a, b) =>
+          a.title.localeCompare(b.title, undefined, { sensitivity: 'base' })
+        ),
       })),
     [SUBJECTS, currentSubject, filteredBySubject]
   );
@@ -114,7 +116,7 @@ const Library: React.FC = () => {
         {shelves.length > 0 ? (
           <div className="space-y-10">
             {shelves.map(({ subject, books: shelfBooks }) => (
-              <Shelf key={subject.code} subject={subject} books={shelfBooks} onSelect={setSelectedBook} />
+              <SubjectSection key={subject.code} subject={subject} books={shelfBooks} onSelect={setSelectedBook} />
             ))}
           </div>
         ) : (

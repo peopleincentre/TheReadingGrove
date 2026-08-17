@@ -1,0 +1,78 @@
+import React from 'react';
+import { Book, Subject } from '../types';
+
+interface BookCardProps {
+  book: Book;
+  subject: Subject;
+  onSelect: (book: Book) => void;
+}
+
+const MAX_KEYWORDS = 3;
+
+const BookCard: React.FC<BookCardProps> = ({ book, subject, onSelect }) => {
+  const keywords = (book.keywords || '')
+    .split(',')
+    .map(k => k.trim())
+    .filter(Boolean)
+    .slice(0, MAX_KEYWORDS);
+
+  const publisherLine = [book.publisher, book.year ? String(book.year) : '']
+    .filter(Boolean)
+    .join(' · ') || 'N/A';
+
+  return (
+    <button
+      type="button"
+      onClick={() => onSelect(book)}
+      className={`
+        h-full w-full text-left
+        bg-white dark:bg-slate-800
+        border border-slate-200 dark:border-slate-700 border-t-4 ${subject.borderColor}
+        rounded-lg shadow-sm hover:shadow-md
+        transition-all duration-200 ease-in-out
+        hover:-translate-y-0.5
+        p-3 md:p-4 flex flex-col gap-1.5
+        focus:outline-none focus:ring-2 focus:ring-indigo-500
+      `}
+      aria-label={`View details for book: ${book.title}`}
+      title={book.title}
+    >
+      <div className="flex items-center justify-between gap-2">
+        <span className={`px-2 py-0.5 rounded-full text-[10px] md:text-xs font-bold text-white ${subject.cardColor}`}>
+          {subject.name}
+        </span>
+        <span className="text-[10px] md:text-xs font-semibold text-slate-400 dark:text-slate-500">
+          {book.copies} {book.copies === 1 ? 'copy' : 'copies'}
+        </span>
+      </div>
+
+      <h3 className="text-sm md:text-base font-bold text-slate-900 dark:text-slate-100 leading-snug line-clamp-3">
+        {book.title}
+      </h3>
+
+      <p className="text-xs md:text-sm text-slate-600 dark:text-slate-400 line-clamp-2">
+        {book.authors || 'Unknown author'}
+      </p>
+
+      <div className="mt-auto pt-1.5 space-y-1 text-[11px] md:text-xs text-slate-500 dark:text-slate-400">
+        <p className="line-clamp-1">{publisherLine}</p>
+        {book.isbn && <p className="line-clamp-1">ISBN: {book.isbn}</p>}
+      </div>
+
+      {keywords.length > 0 && (
+        <div className="flex flex-wrap gap-1 pt-0.5">
+          {keywords.map(kw => (
+            <span
+              key={kw}
+              className="px-1.5 py-px rounded bg-slate-100 dark:bg-slate-700 text-[10px] md:text-xs text-slate-600 dark:text-slate-300 line-clamp-1"
+            >
+              {kw}
+            </span>
+          ))}
+        </div>
+      )}
+    </button>
+  );
+};
+
+export default BookCard;
