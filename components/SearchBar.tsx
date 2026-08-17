@@ -1,79 +1,65 @@
-
 import React from 'react';
-import { SortField, SortDirection, Subject } from '../types';
-import Input from './common/Input';
-import Select from './common/Select';
-import Button from './common/Button';
+import { Subject } from '../types';
 
 interface SearchBarProps {
   searchTerm: string;
   setSearchTerm: (term: string) => void;
-  subjectFilter: string;
-  setSubjectFilter: (code: string) => void;
   subjects: Subject[];
-  yearFilter: string;
-  setYearFilter: (year: string) => void;
-  sortField: SortField;
-  setSortField: (field: SortField) => void;
-  sortDirection: SortDirection;
-  setSortDirection: (direction: SortDirection) => void;
+  subjectCounts: Record<string, number>;
+  activeSubject: string | null;
+  setActiveSubject: (code: string | null) => void;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({
   searchTerm,
   setSearchTerm,
-  subjectFilter,
-  setSubjectFilter,
   subjects,
-  yearFilter,
-  setYearFilter,
-  sortField,
-  setSortField,
-  sortDirection,
-  setSortDirection,
+  subjectCounts,
+  activeSubject,
+  setActiveSubject,
 }) => {
   return (
     <div className="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-md mb-6 space-y-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-6">
-        <Input
-          label="Search"
-          id="search"
+      <div className="relative">
+        <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl pointer-events-none">
+          search
+        </span>
+        <input
+          type="text"
           value={searchTerm}
           onChange={e => setSearchTerm(e.target.value)}
-          className="md:col-span-2"
-        />
-        <Select
-          label="Subject"
-          id="subject-filter"
-          value={subjectFilter}
-          onChange={e => setSubjectFilter(e.target.value)}
-        >
-          <option value="">All Subjects</option>
-          {subjects.map(s => (
-            <option key={s.code} value={s.code}>{s.name}</option>
-          ))}
-        </Select>
-        <Input
-          type="number"
-          label="Year"
-          id="year-filter"
-          value={yearFilter}
-          onChange={e => setYearFilter(e.target.value)}
+          placeholder="Search by title, author, keyword, publisher, subject, accession no…"
+          className="w-full pl-10 pr-4 py-2.5 rounded-md border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
         />
       </div>
-      <div className="flex flex-wrap items-center justify-start gap-4 pt-2">
-        <div className="flex items-center gap-2">
-          <Select label="Sort by" id="sort-field" value={sortField} onChange={e => setSortField(e.target.value as SortField)}>
-            <option value="title">Title</option>
-            <option value="year">Year</option>
-            <option value="subjectCode">Subject</option>
-            <option value="keywords">Keywords</option>
-            <option value="shelfLocation">Shelf Location</option>
-          </Select>
-          <Button onClick={() => setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc')} variant="outlined">
-            <span className="material-symbols-outlined text-lg">{sortDirection === 'asc' ? 'arrow_upward' : 'arrow_downward'}</span>
-          </Button>
-        </div>
+
+      <div className="flex flex-wrap gap-2">
+        <button
+          type="button"
+          onClick={() => setActiveSubject(null)}
+          className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors duration-150 ${
+            activeSubject === null
+              ? 'bg-indigo-600 text-white shadow-sm'
+              : 'bg-slate-200 dark:bg-slate-600 text-slate-700 dark:text-slate-200 hover:bg-slate-300 dark:hover:bg-slate-500'
+          }`}
+        >
+          All subjects
+        </button>
+        {subjects.map(subject => (
+          <button
+            key={subject.code}
+            type="button"
+            onClick={() => setActiveSubject(activeSubject === subject.code ? null : subject.code)}
+            className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors duration-150 ${subject.color} ${
+              activeSubject === subject.code
+                ? 'ring-2 ring-indigo-500 ring-offset-2 dark:ring-offset-slate-800'
+                : 'opacity-90 hover:opacity-100'
+            }`}
+          >
+            {subject.name}
+            <span className="ml-1 opacity-80">({subjectCounts[subject.code] || 0})</span>
+          </button>
+        ))}
       </div>
     </div>
   );

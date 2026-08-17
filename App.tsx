@@ -1,13 +1,10 @@
-import { LibraryProvider } from './context/BookContext';
-import LibraryManager from './components/LibraryManager';
+import Library from './components/Library';
 
 function App() {
   return (
-    <LibraryProvider>
-      <div className="min-h-screen">
-        <LibraryManager />
-      </div>
-    </LibraryProvider>
+    <div className="min-h-screen">
+      <Library />
+    </div>
   );
 }
 
