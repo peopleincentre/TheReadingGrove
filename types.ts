@@ -4,6 +4,7 @@ export interface Subject {
   color: string; // Tailwind color class e.g., 'bg-blue-500 text-white'
   cardColor: string; // Tailwind class for the book item card background
   borderColor: string; // Tailwind class for the book item card border
+  cardGradient: string; // Tailwind gradient class for the card background
 }
 
 export interface Book {

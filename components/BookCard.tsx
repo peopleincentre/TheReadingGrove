@@ -16,7 +16,8 @@ const BookCard: React.FC<BookCardProps> = ({ book, subject, onSelect }) => {
     .filter(Boolean)
     .slice(0, MAX_KEYWORDS);
 
-  const publisherLine = [book.publisher, book.year ? String(book.year) : '']
+  const copiesText = `${book.copies} ${book.copies === 1 ? 'copy' : 'copies'}`;
+  const publisherLine = [book.publisher, book.year ? String(book.year) : '', copiesText]
     .filter(Boolean)
     .join(' · ') || 'N/A';
 
@@ -26,35 +27,26 @@ const BookCard: React.FC<BookCardProps> = ({ book, subject, onSelect }) => {
       onClick={() => onSelect(book)}
       className={`
         h-full w-full text-left
-        bg-white dark:bg-slate-800
-        border border-slate-200 dark:border-slate-700 border-t-4 ${subject.borderColor}
-        rounded-lg shadow-sm hover:shadow-md
+        ${subject.cardGradient}
+        border border-white/10
+        rounded-lg shadow-md hover:shadow-lg
         transition-all duration-200 ease-in-out
         hover:-translate-y-0.5
         p-3 md:p-4 flex flex-col gap-1.5
-        focus:outline-none focus:ring-2 focus:ring-indigo-500
+        focus:outline-none focus:ring-2 focus:ring-white/60
       `}
       aria-label={`View details for book: ${book.title}`}
       title={book.title}
     >
-      <div className="flex items-center justify-between gap-2">
-        <span className={`px-2 py-0.5 rounded-full text-[10px] md:text-xs font-bold text-white ${subject.cardColor}`}>
-          {subject.name}
-        </span>
-        <span className="text-[10px] md:text-xs font-semibold text-slate-400 dark:text-slate-500">
-          {book.copies} {book.copies === 1 ? 'copy' : 'copies'}
-        </span>
-      </div>
-
-      <h3 className="text-sm md:text-base font-bold text-slate-900 dark:text-slate-100 leading-snug line-clamp-3">
+      <h3 className="text-base md:text-lg font-bold text-white leading-snug line-clamp-3">
         {book.title}
       </h3>
 
-      <p className="text-xs md:text-sm text-slate-600 dark:text-slate-400 line-clamp-2">
+      <p className="text-xs md:text-sm text-white/85 line-clamp-2">
         {book.authors || 'Unknown author'}
       </p>
 
-      <div className="mt-auto pt-1.5 space-y-1 text-[11px] md:text-xs text-slate-500 dark:text-slate-400">
+      <div className="mt-auto pt-1.5 space-y-1 text-[11px] md:text-xs text-white/70">
         <p className="line-clamp-1">{publisherLine}</p>
         {book.isbn && <p className="line-clamp-1">ISBN: {book.isbn}</p>}
       </div>
@@ -64,7 +56,7 @@ const BookCard: React.FC<BookCardProps> = ({ book, subject, onSelect }) => {
           {keywords.map(kw => (
             <span
               key={kw}
-              className="px-1.5 py-px rounded bg-slate-100 dark:bg-slate-700 text-[10px] md:text-xs text-slate-600 dark:text-slate-300 line-clamp-1"
+              className="px-1.5 py-px rounded bg-white/20 text-white text-[10px] md:text-xs line-clamp-1"
             >
               {kw}
             </span>
