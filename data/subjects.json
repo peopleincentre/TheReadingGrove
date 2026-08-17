@@ -32,6 +32,14 @@
     "cardGradientTo": "#6EE7B7"
   },
   {
+    "code": "FIC",
+    "name": "Fiction",
+    "color": "#D946EF",
+    "accentColor": "#A21CAF",
+    "cardGradientFrom": "#F5D0FE",
+    "cardGradientTo": "#F0ABFC"
+  },
+  {
     "code": "GEN",
     "name": "General",
     "color": "#78716C",
@@ -70,14 +78,6 @@
     "accentColor": "#4338CA",
     "cardGradientFrom": "#C7D2FE",
     "cardGradientTo": "#A5B4FC"
-  },
-  {
-    "code": "THE",
-    "name": "Theory",
-    "color": "#D946EF",
-    "accentColor": "#A21CAF",
-    "cardGradientFrom": "#F5D0FE",
-    "cardGradientTo": "#F0ABFC"
   },
   {
     "code": "URB",
